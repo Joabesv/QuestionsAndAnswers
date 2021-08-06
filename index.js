@@ -1,11 +1,13 @@
-const express = require('express');
+import express from 'express';
+
+import connection from './database/database.js';
+
+import Answer from './database/Answer.js';
+
+import Question from './database/Question.js';
 
 const app = express();
 const port = 3002;
-
-const connection = require('./database/database');
-const Question = require('./database/Question');
-const Answer = require('./database/Answer');
 
 // database
 connection
@@ -42,8 +44,7 @@ app.get('/ask/', (req, res) => {
 
 // post se usa para receber dados de formulário
 app.post('/saveQuestion', (req, res) => {
-  const { title } = req.body;
-  const { description } = req.body;
+  const { title, description } = req.body;
   Question.create({ title, description }).then(() => res.redirect('/'));
 });
 

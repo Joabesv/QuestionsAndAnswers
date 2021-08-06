@@ -5,18 +5,23 @@
   "main": "index.js",
   "author": "Joabesv <joabevarjao123@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "babel-node index.js",
+    "clean": "rm -rf dist",
+    "build": "yarn clean && babel index.js --out-dir dist --copy-files"
   },
   "engines": {
     "npm": "You must run yarn at this project.",
     "yarn": "^1.22.x"
   },
   "dependencies": {
+    "core-js": "^3.16.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
+    "regenerator-runtime": "^0.13.9",
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
@@ -27,6 +32,10 @@
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^3.4.0",
     "nodemon": "^2.0.12",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.15.0"
   }
 }

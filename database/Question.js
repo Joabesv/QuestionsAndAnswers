@@ -1,5 +1,6 @@
-const Sequelize = require('sequelize');
-const connection = require('./database');
+import Sequelize from 'sequelize';
+
+import connection from './database.js';
 
 const Question = connection.define('questions', {
   title: {
@@ -14,4 +15,4 @@ const Question = connection.define('questions', {
 
 Question.sync({ force: false }).then(() => {});
 
-module.exports = Question;
+export default Question;

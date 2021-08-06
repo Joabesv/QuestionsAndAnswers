@@ -1,5 +1,6 @@
-const Sequelize = require('sequelize');
-const connection = require('./database');
+import Sequelize from 'sequelize';
+
+import connection from './database.js';
 
 const Answer = connection.define('answers', {
   body: {
@@ -14,4 +15,4 @@ const Answer = connection.define('answers', {
 
 Answer.sync({ force: false });
 
-module.exports = Answer;
+export default Answer;

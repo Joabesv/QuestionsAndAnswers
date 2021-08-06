@@ -1,5 +1,8 @@
-const Sequelize = require('sequelize');
-require('dotenv').config();
+import Sequelize from 'sequelize';
+
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const connection = new Sequelize(
   process.env.database,
@@ -12,10 +15,4 @@ const connection = new Sequelize(
   }
 );
 
-module.exports = connection;
-
-/*
-process.env.database
-process.env.user
-process.env.password
-*/
+export default connection;
